@@ -5,6 +5,7 @@ import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 // import AppNavigator from "./src/navigation/AppNavigator";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Home, SignIn } from './src/screens';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -48,9 +49,9 @@ export default function App() {
     return null;
   }
   return (
-    <SafeAreaProvider style={{ flex: 1 }}>
+    <SafeAreaProvider style={{ flex: 1 }} onLayout={onLayout}>
       <View style={{ flex: 1 }}>
-        <Text>Open up App.tsx to start working on your app!</Text>
+        <Home />
         <StatusBar style="auto" />
       </View>
 
