@@ -22,10 +22,21 @@ const SendMoneyScreen:FC<Props> = ({navigation}) => {
   };
 
   const handlePress = (value: string) => {
-    if (value === '.' && amount.includes('.')) return;
+    const newAmount = amount + value;
+    const dotIndex = newAmount.indexOf('.');
+    const digitCount = dotIndex >= 0 ? dotIndex : newAmount.length;
+
+    if (digitCount > 9) return; 
+
+    if (value === '.' && (amount === '' || amount === '0')) {
+      setAmount('0.');
+      return;
+    }
+
+    
     if (value === '0' && amount === '') return;
 
-    setAmount((prev) => prev + value);
+    setAmount(newAmount);
   };
 
   const handleBackspace = () => {
