@@ -27,9 +27,6 @@ export default function App() {
           medium: require("./assets/fonts/Inter_18pt-Medium.ttf"),
           regular: require("./assets/fonts/Inter_18pt-Regular.ttf"),
           thin: require("./assets/fonts/Inter_18pt-Thin.ttf"),
-          montserrat_regular: require("./assets/fonts/Montserrat-Regular.ttf"),
-          montserrat_medium: require("./assets/fonts/Montserrat-Medium.ttf"),
-          montserrat_semibold: require("./assets/fonts/Montserrat-SemiBold.ttf"),
         });
       } catch (error) {
         console.error("Error loading fonts: ", error);
