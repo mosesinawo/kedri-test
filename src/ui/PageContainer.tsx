@@ -18,7 +18,7 @@ const PageContainer: FC<IPageContainer> = ({ children, padding = "5%", style, pa
       style={[ tw`bg-[#fff] px-[5%]`,
         {
           flex: 1,
-          paddingHorizontal: "5%",
+          paddingHorizontal: 20,
           paddingTop: insets.top * paddingTop,
         },
         style,

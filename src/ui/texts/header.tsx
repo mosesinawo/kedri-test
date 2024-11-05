@@ -10,6 +10,7 @@ interface IHeader extends TextProps {
   color?: string;
   font?: string;
   props?: any;
+  lineHeight?: number;
 }
 
 const Header: FC<IHeader> = ({
@@ -19,13 +20,14 @@ const Header: FC<IHeader> = ({
   weight = "600",
   color = "#000",
   font = "semi_bold",
+  lineHeight,
   ...props
 }) => {
 
   return (
     <Text
       style={[
-        { fontSize: size, fontWeight: weight, color :color, fontFamily: font },
+        { fontSize: size, fontWeight: weight, color :color, fontFamily: font, lineHeight:lineHeight },
         style,
         tw`dark:text-white`,
       ]}

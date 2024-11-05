@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import tw from '../lib/tailwind'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import images from '../utils/constants/images'
@@ -9,7 +9,22 @@ import PageContainer from '../ui/PageContainer'
 import TextPrimary from '../ui/texts/text'
 import PrimaryButton from '../ui/PrimaryButton'
 
-const SignIn = () => {
+import { StackScreenProps } from '@react-navigation/stack';
+import { RootStackParamList } from '../navigation/navigation.types';
+
+type Props = StackScreenProps<RootStackParamList, 'SignInScreen'>;
+
+const SignIn:FC<Props> = ({navigation}) => {
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const [disable, setDisable] = useState(true)
+
+  useEffect(() => {
+    setDisable(email === '' || password === '')
+  }, [email, password])
+
   return (
     <PageContainer style={tw`flex-1 `}>
       <View style={tw`flex-1 pb-8`}>
@@ -20,10 +35,10 @@ const SignIn = () => {
           </Header>
         </View>
         <View style={tw`mt-5 gap-5`}>
-          <InputText placeholder="Email address" />
-          <InputText placeholder="Password" type='password' />
+          <InputText value={email} onChangeText={(text) => setEmail(text)} placeholder="Email address" />
+          <InputText value={password} onChangeText={(text) => setPassword(text)} placeholder="Password" type='password' />
           <TextPrimary style={tw`text-primary ml-auto`} font='medium'>Forgot Password</TextPrimary>
-          <PrimaryButton disabled={true}>Login</PrimaryButton>
+          <PrimaryButton onPress={() => navigation.navigate("HomeScreen")} disabled={disable}>Login</PrimaryButton>
         </View>
       <TextPrimary  style={tw`mt-auto text-center`}>Don't have an account ? <TextPrimary font='semi_bold' style={tw`text-primary`}>Register</TextPrimary></TextPrimary>
 

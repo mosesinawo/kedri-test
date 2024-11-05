@@ -22,7 +22,7 @@ disabled
     <Pressable
       onPress={onPress}
       style={[
-        tw`h-[50px] w-full rounded-[8px] flex-row text-center items-center justify-center border border-[#C4C4C4] gap-2`,
+        tw`h-[50px] w-full rounded-[8px] flex-row text-center items-center justify-center gap-2`,
         {
             backgroundColor: disabled ? "#CACACA" : "#F15C44"
         },
